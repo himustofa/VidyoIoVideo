@@ -32,5 +32,24 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 
+    //===============================================| Vidyo.io library
     implementation files('libs/android/vidyoclient.jar')
+
+    //===============================================| Design, CardView library
+    implementation 'com.google.android.material:material:1.0.0'
+
+    //===============================================| Firebase library
+    implementation 'com.google.firebase:firebase-core:17.0.1'
+    implementation 'com.google.firebase:firebase-database:18.0.1'
+    implementation 'com.google.firebase:firebase-storage:18.1.1'
+    implementation 'com.google.firebase:firebase-auth:18.1.0'
+    implementation 'com.google.firebase:firebase-messaging:19.0.1'
+    implementation 'com.google.firebase:firebase-functions:18.1.0'
+
+    //===============================================| Volley library
+    implementation 'com.android.volley:volley:1.1.1'
 }
+
+//===============================================| Firebase
+apply plugin: 'com.google.gms.google-services'
+
