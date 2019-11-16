@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public class MainActivity extends AppCompatActivity implements Connector.IConnect {
 
     private static final String TAG="MainActivity";
-    private Connector vc;
+    private Connector mConnector;
     private FrameLayout videoFrame;
     private String mToken;
 
@@ -92,20 +92,20 @@ public class MainActivity extends AppCompatActivity implements Connector.IConnec
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                vc = new Connector(videoFrame, Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default, 15, "warning info@VidyoClient info@VidyoConnector", "", 0);
-                vc.showViewAt(videoFrame, 0, 0, videoFrame.getWidth(), videoFrame.getHeight());
+                mConnector = new Connector(videoFrame, Connector.ConnectorViewStyle.VIDYO_CONNECTORVIEWSTYLE_Default, 2, "warning info@VidyoClient info@VidyoConnector", "", 0);
+                mConnector.showViewAt(videoFrame, 0, 0, videoFrame.getWidth(), videoFrame.getHeight());
             }
         }, 3000);
     }
 
     public void Connect(View v) {
         if (mToken != null) {
-            vc.connect("prod.vidyo.io", mToken, "DemoUser", "DemoRoom", this);
+            mConnector.connect("prod.vidyo.io", mToken, "DemoUser", "DemoRoom", this);
         }
     }
 
     public void Disconnect(View v) {
-        vc.disconnect();
+        mConnector.disconnect();
     }
 
     public void onSuccess() {
